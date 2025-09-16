@@ -16,4 +16,8 @@ if ! terraform apply -target="module.${LEVEL}" -auto-approve > apply.log 2>&1; t
   exit 1
 fi
 
+IP=$(terraform output -raw instance_ip)
+
+echo "IP is ${IP}"
+
 echo "Level Deployed!"
