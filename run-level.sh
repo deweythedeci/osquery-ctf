@@ -10,13 +10,13 @@ if [ -z "$LEVEL" ]; then
 fi
 
 echo "Deploying module: $LEVEL..."
-if ! terraform apply -target="module.${LEVEL}" -auto-approve > apply.log 2>&1; then
+if ! terraform -chdir=terraform apply -target="module.${LEVEL}" -auto-approve > apply.log 2>&1; then
   echo "Terraform apply failed. Last 20 log lines:"
   tail -n 20 apply.log
   exit 1
 fi
 
-IP=$(terraform output -raw instance_ip)
+IP=$(terraform -chdir=terraform output -raw instance_ip)
 
 echo "IP is ${IP}"
 
