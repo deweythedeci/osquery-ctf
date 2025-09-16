@@ -15,7 +15,7 @@ resource "google_compute_instance" "lab0_instance" {
   }
 
   metadata = {
-    ssh-keys = "${var.ssh_user}:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.ssh_username}:${file("~/.ssh/id_rsa.pub")}"
     startup-script = file("${path.module}/startup.sh")
   }
 }
