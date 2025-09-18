@@ -10,9 +10,17 @@ Enable the API required for this project.
 
 `gcloud services enable compute.googleapis.com`
 
+Create a Python virtual enviornment that will be used for Ansible.
+
+`virtualenv -v env-osctf; source env-osctf/bin/activate`
+
 Clone this project into your shell.
 
 `git clone https://github.com/REPLACEME`
+
+Install the required packages.
+
+`pip install ansible`
 
 Edit terraform.tfvars to have your project id.
 
