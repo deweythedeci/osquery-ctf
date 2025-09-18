@@ -18,17 +18,9 @@ Clone this project into your shell.
 
 `git clone https://github.com/REPLACEME`
 
-Install the required packages.
+Run the setup script.
 
-`pip install ansible`
-
-Edit terraform.tfvars to have your project id.
-
-`echo 'project_id = "$(gcloud config get-value project)"' > terraform.tfvars`
-
-Finally, initialize the project for the CTF.
-
-`terraform -chdir=terraform init`
+`cd osquery-ctf; ./setup.sh`
 
 Then, to play each level start it up with the run script.
 
