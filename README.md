@@ -28,7 +28,7 @@ Edit terraform.tfvars to have your project id.
 
 Finally, initialize the project for the CTF.
 
-`terraform init`
+`terraform -chdir=terraform init`
 
 Then, to play each level start it up with the run script.
 
