@@ -18,9 +18,13 @@ Clone this project into your shell.
 
 `git clone https://github.com/REPLACEME`
 
-Run the setup script.
+Install the required packages.
 
-`cd osquery-ctf; ./setup.sh`
+`pip install ansible`
+
+Run the setup script to initialize everything.
+
+`./setup-lab.sh`
 
 Then, to play each level start it up with the run script.
 

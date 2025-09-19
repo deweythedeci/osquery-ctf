@@ -1,5 +1,2 @@
-# technically unnecessary to include but good practice
-*.log
 *.tfstate
 *.tfstate.backup
-ssh/*

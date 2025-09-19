@@ -11,6 +11,6 @@ fi
 
 echo "Deploying module: $LEVEL..."
 terraform -chdir=terraform apply -target="module.${LEVEL}" -auto-approve
-terraform -chdir=terraform output -target="module.${LEVEL}" -raw instance_ip
+terraform -chdir=terraform output -raw "${LEVEL}_ip"
 
 echo "Level Deployed!"
