@@ -1,10 +1,31 @@
-- name: Test connection to VM
+- name: Install osquery
   hosts: all
-  tasks:
-    - name: Run uname
-      command: uname -a
-      register: result
+  become: yes
 
-    - name: Show output
-      debug:
-        var: result.stdout
+  tasks:
+    - name: Create keyrings directory
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: '0755'
+    
+    - name: Download GPG key
+      get_url:
+        url: https://pkg.osquery.io/deb/pubkey.gpg
+        dest: /etc/apt/keyrings
+        mode: '0644'
+    
+    - name: Add osquery apt repository
+      apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.gpg] https://pkg.osquery.io/deb deb main"
+        filename: osquery
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    
+    - name: Install osquery
+      apt:
+        name: osquery
+        state: present
