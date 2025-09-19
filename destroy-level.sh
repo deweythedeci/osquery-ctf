@@ -10,10 +10,7 @@ if [ -z "$LEVEL" ]; then
 fi
 
 echo "Tearing down module: $LEVEL..."
-if ! terraform destroy -target="module.${LEVEL}" -auto-approve > destroy.log 2>&1; then
-  echo "Terraform destroy failed. Last 20 log lines:"
-  tail -n 20 destroy.log
-  exit 1
-fi
+
+terraform destroy -target="module.${LEVEL}" -auto-approve
 
 echo "Level Destroyed!"
