@@ -9,7 +9,7 @@ variable "zone" {
 }
 
 variable "ssh_username" {
-  description = "Username for SSH login"
+  description = "Username for SSH Access"
   type        = string
-  default     = "student"
+  default     = "ansible"
 }
