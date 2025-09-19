@@ -16,7 +16,7 @@ Create a Python virtual enviornment that will be used for Ansible.
 
 Clone this project into your shell.
 
-`git clone https://github.com/REPLACEME`
+`git clone https://github.com/deweythedeci/osquery-ctf.git`
 
 Install the required packages.
 
