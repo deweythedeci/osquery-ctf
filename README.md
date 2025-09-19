@@ -2,7 +2,7 @@
 
 ## Setup
 
-Create a new project and enable billing for that project. Open Cloud Shell and set it to point to the project you just created.
+Create a new project and enable billing for that project. Open Cloud Shell and double check to make sure it is pointing to the project you just created.
 
 `gcloud config set project [PROJECT-ID]`
 
