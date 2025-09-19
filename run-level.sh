@@ -10,7 +10,6 @@ if [ -z "$LEVEL" ]; then
 fi
 
 echo "Deploying module: $LEVEL..."
-terraform -chdir=terraform apply -target="module.${LEVEL}" -auto-approve
-terraform -chdir=terraform output -target="module.${LEVEL}" -raw instance_ip
+terraform -chdir=terraform apply -target="module.${LEVEL}" -auto-approve >/dev/null
 
 echo "Level Deployed!"
