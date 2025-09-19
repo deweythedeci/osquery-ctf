@@ -6,10 +6,6 @@ Create a new project and enable billing for that project. Open Cloud Shell and d
 
 `gcloud config set project [PROJECT-ID]`
 
-Enable the compute API for this project.
-
-`gcloud services enable compute.googleapis.com`
-
 Create a Python virtual enviornment that will be used for Ansible.
 
 `virtualenv -v env-osctf; source env-osctf/bin/activate`
@@ -22,9 +18,13 @@ Clone this project into your shell.
 
 `git clone https://github.com/deweythedeci/osquery-ctf.git; cd osquery-ctf`
 
-Run the setup script to initialize everything.
+Generate an ssh key pair for Ansible to use.
 
-`./setup-lab.sh`
+`ssh-keygen -t ed25519 -f ssh/id_ed25519 -P ""`
+
+Initialize terraform.
+
+`terraform -chdir=terraform/core init`
 
 Then, to play each level start it up with the run script.
 

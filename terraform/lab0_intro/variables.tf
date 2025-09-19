@@ -1,8 +1,3 @@
-variable "project_id" {
-  type        = string
-  description = "GCP project ID"
-}
-
 variable "zone" {
   type        = string
   description = "Zone for Compute Engine"
