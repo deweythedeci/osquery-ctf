@@ -14,7 +14,7 @@ resource "google_compute_instance" "lab0_instance" {
     access_config {}
   }
 
-  #metadata = {
-  #  ssh-keys = "${var.ssh_username}:${file("${path.module}/../../ssh/id_ed25519.pub")}"
-  #}
+  metadata = {
+    ssh-keys = "${var.ssh_username}:${file("${path.module}/../../ssh/id_ed25519.pub")}"
+  }
 }
