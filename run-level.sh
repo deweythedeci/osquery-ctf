@@ -14,6 +14,6 @@ terraform -chdir=terraform apply -target="module.${LEVEL}" -auto-approve > /dev/
 
 IP=$(terraform -chdir=terraform output -raw "${LEVEL}_ip")
 
-ansible-playbook -i "${IP}," -u "student" --private-key ssh/id_ed25519 "ansible/${LEVEL}/playbook.yml"
+ansible-playbook -i "${IP}," -u "student" --private-key ssh/id_ed25519 --ssh-extra-args="-o StrictHostKeyChecking=no" "ansible/${LEVEL}/playbook.yml"
 
 echo "Level Deployed!"
