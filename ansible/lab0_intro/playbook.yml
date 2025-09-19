@@ -1,0 +1,10 @@
+- name: Test connection to VM
+  hosts: all
+  tasks:
+    - name: Run uname
+      command: uname -a
+      register: result
+
+    - name: Show output
+      debug:
+        var: result.stdout
