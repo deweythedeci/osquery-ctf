@@ -20,7 +20,7 @@ Clone this project into your shell.
 
 Generate ssh keys for Ansible to use.
 
-`ssh-keygen -t ed25519 -f ssh/id_ed25519`
+`ssh-keygen -t ed25519 -f ssh/id_ed25519 -N ""`
 
 Initialize terraform.
 
