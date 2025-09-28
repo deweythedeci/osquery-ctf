@@ -1,3 +1,11 @@
+- name: Wait for connection
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Wait until machine is reachable
+      wait_for_connection:
+
 - name: Install osquery
   hosts: all
   become: yes
