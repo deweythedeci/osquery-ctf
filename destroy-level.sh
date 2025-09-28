@@ -11,6 +11,6 @@ fi
 
 echo "Tearing down module: $LEVEL..."
 
-terraform destroy -target="module.${LEVEL}" -auto-approve
+terraform -chdir=terraform/core destroy -target="module.${LEVEL}" -auto-approve
 
 echo "Level Destroyed!"
