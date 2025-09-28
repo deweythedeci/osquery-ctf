@@ -6,7 +6,7 @@ Create a new project and enable billing for that project. Open Cloud Shell and d
 
 `gcloud config set project [PROJECT-ID]`
 
-Create a Python virtual enviornment that will be used for Ansible.
+Create a Python virtual enviornment that will be used for Ansible. Remember to reactivate this enviornment when your cloud shell is reset.
 
 `virtualenv -v env-osctf; source env-osctf/bin/activate`
 
