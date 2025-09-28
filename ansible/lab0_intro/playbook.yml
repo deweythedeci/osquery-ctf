@@ -20,12 +20,12 @@
     - name: Download GPG key
       get_url:
         url: https://pkg.osquery.io/deb/pubkey.gpg
-        dest: /etc/apt/keyrings
+        dest: /etc/apt/keyrings/osquery.asc
         mode: '0644'
     
     - name: Add osquery apt repository
       apt_repository:
-        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.gpg] https://pkg.osquery.io/deb deb main"
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.asc] https://pkg.osquery.io/deb deb main"
         filename: osquery
         state: present
 
