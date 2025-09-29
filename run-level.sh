@@ -10,10 +10,7 @@ if [ -z "$LEVEL" ]; then
 fi
 
 echo "Deploying module: $LEVEL..."
+
 terraform -chdir=terraform/core apply -target="module.${LEVEL}" -auto-approve
-
-IP=$(terraform -chdir=terraform/core output -raw "${LEVEL}_ip")
-
-ansible-playbook -i "${IP}," -u "ansible" --private-key ssh/id_ed25519 --ssh-extra-args="-o StrictHostKeyChecking=no" "ansible/${LEVEL}/playbook.yml"
 
 echo "Level Deployed!"

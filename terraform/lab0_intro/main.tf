@@ -1,3 +1,8 @@
+variable "zone" {
+  type        = string
+  description = "Zone for Compute Engine"
+}
+
 resource "google_compute_instance" "lab0_instance" {
   name         = "lab0-instance"
   machine_type = "e2-micro"
@@ -15,6 +20,6 @@ resource "google_compute_instance" "lab0_instance" {
   }
 
   metadata = {
-    ssh-keys = "${var.ssh_username}:${file("${path.module}/../../ssh/id_ed25519.pub")}"
+    startup-script = file("${path.module}/startup.sh")
   }
 }
