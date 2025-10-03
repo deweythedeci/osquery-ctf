@@ -20,6 +20,14 @@ resource "google_compute_instance" "lab0_instance" {
   }
 
   metadata = {
-    startup-script = file("${path.module}/startup.sh")
+    user-data = <<-EOT
+      packages:
+        - gpg
+      runcmd:
+        - curl -fsSL https://pkg.osquery.io/deb/pubkey.gpg | gpg --dearmor -o /etc/apt/keyrings/osquery.gpg
+        - echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.gpg] https://pkg.osquery.io/deb deb main" > /etc/apt/sources.list.d/osquery.list
+        - apt-get update
+        - apt-get install -y osquery
+    EOT
   }
 }
