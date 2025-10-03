@@ -5,7 +5,7 @@ variable "zone" {
 
 resource "google_compute_instance" "lab0_instance" {
   name         = "lab0-instance"
-  machine_type = "e2-micro"
+  machine_type = "e2-medium"
   zone         = var.zone
   
   boot_disk {
