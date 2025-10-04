@@ -1,24 +1,8 @@
 # cloud config
 
 #cloud-config
-package_update: true
-package_upgrade: true
-packages:
-  - curl
-  - gnupg
-  - lsb-release
-
 runcmd:
-  # Add osquery repository key
-  - curl -L https://pkg.osquery.io/gpg.key | apt-key add -
-
-  # Add osquery repository
-  - DISTRO=$(lsb_release -c -s)
-  - echo "deb [arch=amd64] https://pkg.osquery.io/deb ${DISTRO} main" > /etc/apt/sources.list.d/osquery.list
-
-  # Update and install osquery
+  - curl -L https://pkg.osquery.io/deb/pubkey.gpg | sudo tee /etc/apt/keyrings/osquery.asc
+  - echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.asc] https://pkg.osquery.io/deb deb main" > /etc/apt/sources.list.d/osquery.list
   - apt-get update
   - apt-get install -y osquery
-
-  # Optional: print version to verify installation
-  - osqueryi --version
