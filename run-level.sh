@@ -15,4 +15,4 @@ terraform -chdir=terraform/core apply -target="module.${LEVEL}" -auto-approve
 
 echo "Level Deployed!"
 
-echo 'You can connect to the lab instance with `gcloud compute ssh lab?-instance -zone=us-central1=a`'
+echo 'You can connect to the lab instance with `gcloud compute ssh lab?-instance --zone=us-central1-a`'
