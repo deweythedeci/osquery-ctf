@@ -1,9 +1,3 @@
-# cloud config
-
 #cloud-config
 runcmd:
-  - touch /foo
-  - curl -L https://pkg.osquery.io/deb/pubkey.gpg | sudo tee /etc/apt/keyrings/osquery.asc
-  - echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.asc] https://pkg.osquery.io/deb deb main" > /etc/apt/sources.list.d/osquery.list
-  - apt-get update
-  - apt-get install -y osquery
+  - echo "cloud-init worked!" > /var/tmp/cloud-init-test.txt
