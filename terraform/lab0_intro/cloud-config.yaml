@@ -1,11 +1,4 @@
 #cloud-config
-write_files:
-  - path: /opt/foo.sh
-    permissions: '0755'
-    owner: root:root
-    content: |
-      echo "hello!"
-      
 runcmd:
   # install osquery
   - mkdir -p /etc/apt/keyrings
@@ -13,3 +6,10 @@ runcmd:
   - echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.gpg] https://pkg.osquery.io/deb deb main" | sudo tee /etc/apt/sources.list.d/osquery.list > /dev/null
   - sudo apt update
   - sudo apt install osquery
+
+#write_files:
+#  - path: /opt/foo.sh
+#    permissions: '0755'
+#    owner: root:root
+#    content: |
+#      echo "hello!"
