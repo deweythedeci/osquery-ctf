@@ -6,7 +6,6 @@ write_files:
     content: |
       echo "hello!"
       
-
 runcmd:
   # install osquery
   - mkdir -p /etc/apt/keyrings
