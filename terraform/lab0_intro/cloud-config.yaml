@@ -4,13 +4,8 @@ write_files:
     permissions: '0755'
     owner: root:root
     content: |
-      ${script_file}
-  
-  - path: /etc/systemd/system/foo.service
-    permissions: '0644'
-    owner: root:root
-    content: |
-      ${service_file}
+      echo "hello!"
+      
 
 runcmd:
   # install osquery
@@ -19,7 +14,3 @@ runcmd:
   - echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/osquery.gpg] https://pkg.osquery.io/deb deb main" | sudo tee /etc/apt/sources.list.d/osquery.list > /dev/null
   - sudo apt update
   - sudo apt install osquery
-
-  # run script
-  - chmod +x /opt/foo.sh
-  - /opt/foo.sh
