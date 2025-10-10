@@ -16,7 +16,7 @@ resource "google_compute_instance" "lab0_instance" {
 
   network_interface {
     network       = "default"
-    access_config = {}
+    access_config {}
   }
 
   metadata = {
