@@ -16,9 +16,13 @@ resource "google_compute_instance" "lab0_instance" {
 
   network_interface {
     network       = "default"
+    access-config = {}
   }
 
   metadata = {
-    user-data = file("${path.module}/cloud-config.yaml")
+    user-data = templatefile("${path.module}/cloud-config.yaml", {
+      script_file = file("${path.module}/foo.sh")
+      service_file = file("${path.module}/foo.service")
+    })
   }
 }
