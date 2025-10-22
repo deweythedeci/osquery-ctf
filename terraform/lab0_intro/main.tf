@@ -26,6 +26,6 @@ resource "google_compute_instance" "lab0_instance" {
   }
 }
 
-output "lab0_user_data" {
-  value = module.lab0_intro.user_data_contents
+output "user_data_contents" {
+  value = google_compute_instance.lab0_instance.metadata["user-data"]
 }
