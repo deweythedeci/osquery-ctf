@@ -10,7 +10,7 @@ resource "google_compute_instance" "lab0_instance" {
   
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-2404-lts"
+      image = "ubuntu-os-cloud/ubuntu-2404-lts-amd64"
     }
   }
 

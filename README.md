@@ -6,6 +6,10 @@ Create a new project and enable billing for that project. Open Cloud Shell and d
 
 `gcloud config set project [PROJECT-ID]`
 
+Enable the compute engine API.
+
+`gcloud services enable compute.googleapis.com`
+
 Clone this project into your shell.
 
 `git clone https://github.com/deweythedeci/osquery-ctf.git; cd osquery-ctf`
