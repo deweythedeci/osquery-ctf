@@ -8,7 +8,7 @@ write_files:
   - path: /opt/Dockerfile
     permissions: '0644'
     encoding: b64
-    content: ${dockerfile_content}
+    content: "${dockerfile_content}"
 
 runcmd:
 # install docker
