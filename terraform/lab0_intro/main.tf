@@ -21,7 +21,7 @@ resource "google_compute_instance" "lab0_instance" {
 
   metadata = {
     user-data = templatefile("${path.module}/../cloud-config.tftpl", {
-      dockerfile_content = file("${path.module}/Dockerfile")
+      dockerfile_content = base64encode(file("${path.module}/Dockerfile"))
     })
   }
 }
