@@ -1,0 +1,17 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+
+write_files:
+  - path: /root/Dockerfile
+    permissions: '0644'
+    content: |
+      ${file("${path.module}/Dockerfile")}
+
+runcmd:
+  - systemctl enable docker
+  - systemctl start docker
+  - cd /root
+  - docker build -t lab-image .
+  - docker run -d --name lab-container lab-image

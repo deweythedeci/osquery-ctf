@@ -10,7 +10,7 @@ resource "google_compute_instance" "lab0_instance" {
   
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-2204-lts"
+      image = "ubuntu-os-cloud/ubuntu-2404-lts"
     }
   }
 
@@ -20,6 +20,6 @@ resource "google_compute_instance" "lab0_instance" {
   }
 
   metadata = {
-    user-data = file("${path.module}/cloud-config.yaml")
+    user-data = file("${path.module}/../cloud-config.yaml")
   }
 }
